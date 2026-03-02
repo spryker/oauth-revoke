@@ -24,10 +24,6 @@ class OauthRefreshTokenCreator implements OauthRefreshTokenCreatorInterface
      */
     protected $oauthRefreshTokenMapper;
 
-    /**
-     * @param \Spryker\Zed\OauthRevoke\Persistence\OauthRevokeEntityManagerInterface $oauthRevokeEntityManager
-     * @param \Spryker\Zed\OauthRevoke\Business\Mapper\OauthRefreshTokenMapperInterface $oauthRefreshTokenMapper
-     */
     public function __construct(
         OauthRevokeEntityManagerInterface $oauthRevokeEntityManager,
         OauthRefreshTokenMapperInterface $oauthRefreshTokenMapper
@@ -53,11 +49,6 @@ class OauthRefreshTokenCreator implements OauthRefreshTokenCreatorInterface
         $this->oauthRevokeEntityManager->saveRefreshToken($oauthRefreshTokenTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return void
-     */
     public function saveRefreshTokenFromTransfer(OauthRefreshTokenTransfer $oauthRefreshTokenTransfer): void
     {
         $this->oauthRevokeEntityManager->saveRefreshToken($oauthRefreshTokenTransfer);

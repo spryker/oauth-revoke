@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\OauthRefreshTokenTransfer;
 
 interface OauthRefreshTokenRevokerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return void
-     */
     public function revokeRefreshToken(OauthRefreshTokenTransfer $oauthRefreshTokenTransfer): void;
 }

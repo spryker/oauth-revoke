@@ -24,9 +24,6 @@ use Spryker\Zed\OauthRevoke\OauthRevokeDependencyProvider;
  */
 class OauthRevokeBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\OauthRevoke\Business\Creator\OauthRefreshTokenCreatorInterface
-     */
     public function createOauthRefreshTokenCreator(): OauthRefreshTokenCreatorInterface
     {
         return new OauthRefreshTokenCreator(
@@ -35,9 +32,6 @@ class OauthRevokeBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\OauthRevoke\Business\Mapper\OauthRefreshTokenMapperInterface
-     */
     public function createOauthRefreshTokenMapper(): OauthRefreshTokenMapperInterface
     {
         return new OauthRefreshTokenMapper(
@@ -46,9 +40,6 @@ class OauthRevokeBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\OauthRevoke\Business\Revoker\OauthRefreshTokenRevokerInterface
-     */
     public function createOauthRefreshTokenRevoker(): OauthRefreshTokenRevokerInterface
     {
         return new OauthRefreshTokenRevoker(
@@ -57,9 +48,6 @@ class OauthRevokeBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\OauthRevoke\Dependency\Service\OauthRevokeToUtilEncodingServiceInterface
-     */
     public function getUtilEncodingService(): OauthRevokeToUtilEncodingServiceInterface
     {
         return $this->getProvidedDependency(OauthRevokeDependencyProvider::SERVICE_UTIL_ENCODING);

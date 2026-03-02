@@ -23,10 +23,6 @@ class OauthRefreshTokenRevoker implements OauthRefreshTokenRevokerInterface
      */
     protected $oauthRevokeRepository;
 
-    /**
-     * @param \Spryker\Zed\OauthRevoke\Persistence\OauthRevokeEntityManagerInterface $oauthRevokeEntityManager
-     * @param \Spryker\Zed\OauthRevoke\Persistence\OauthRevokeRepositoryInterface $oauthRevokeRepository
-     */
     public function __construct(
         OauthRevokeEntityManagerInterface $oauthRevokeEntityManager,
         OauthRevokeRepositoryInterface $oauthRevokeRepository
@@ -35,11 +31,6 @@ class OauthRefreshTokenRevoker implements OauthRefreshTokenRevokerInterface
         $this->oauthRevokeRepository = $oauthRevokeRepository;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return void
-     */
     public function revokeRefreshToken(OauthRefreshTokenTransfer $oauthRefreshTokenTransfer): void
     {
         if ($this->oauthRevokeRepository->isRefreshTokenRevoked($oauthRefreshTokenTransfer)) {

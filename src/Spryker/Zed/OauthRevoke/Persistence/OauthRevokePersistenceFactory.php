@@ -18,17 +18,11 @@ use Spryker\Zed\OauthRevoke\Persistence\Propel\Mapper\OauthRefreshTokenMapper;
  */
 class OauthRevokePersistenceFactory extends AbstractPersistenceFactory
 {
-    /**
-     * @return \Spryker\Zed\OauthRevoke\Persistence\Propel\Mapper\OauthRefreshTokenMapper
-     */
     public function createOauthRefreshTokenMapper(): OauthRefreshTokenMapper
     {
         return new OauthRefreshTokenMapper();
     }
 
-    /**
-     * @return \Orm\Zed\OauthRevoke\Persistence\SpyOauthRefreshTokenQuery
-     */
     public function createRefreshTokenQuery(): SpyOauthRefreshTokenQuery
     {
         return SpyOauthRefreshTokenQuery::create();

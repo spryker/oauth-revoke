@@ -31,19 +31,11 @@ class OauthRevokeBusinessTester extends Actor
 {
     use _generated\OauthRevokeBusinessTesterActions;
 
-    /**
-     * @return int
-     */
     public function deleteAllOauthRefreshTokens(): int
     {
         return SpyOauthRefreshTokenQuery::create()->deleteAll();
     }
 
-    /**
-     * @param string $identifier
-     *
-     * @return \Orm\Zed\OauthRevoke\Persistence\SpyOauthRefreshToken
-     */
     public function persistOauthRefreshToken(string $identifier): SpyOauthRefreshToken
     {
         $oauthClient = new SpyOauthClient();

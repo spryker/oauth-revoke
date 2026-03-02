@@ -21,10 +21,5 @@ interface OauthRefreshTokenCreatorInterface
      */
     public function saveRefreshToken(RefreshTokenEntityInterface $refreshTokenEntity): void;
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return void
-     */
     public function saveRefreshTokenFromTransfer(OauthRefreshTokenTransfer $oauthRefreshTokenTransfer): void;
 }

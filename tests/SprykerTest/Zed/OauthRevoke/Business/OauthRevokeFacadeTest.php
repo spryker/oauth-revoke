@@ -45,9 +45,6 @@ class OauthRevokeFacadeTest extends Unit
      */
     protected $oauthRevokeFacade;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -55,9 +52,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->oauthRevokeFacade = new OauthRevokeFacade();
     }
 
-    /**
-     * @return void
-     */
     public function testDeleteExpiredRefreshTokens(): void
     {
         // Arrange
@@ -73,9 +67,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->assertSame(1, $count);
     }
 
-    /**
-     * @return void
-     */
     public function testFindRefreshToken(): void
     {
         // Arrange
@@ -93,9 +84,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->assertSame($expectedOauthRefreshToken->getIdentifier(), $refreshToken->getIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testGetRefreshTokens(): void
     {
         // Arrange
@@ -114,9 +102,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->assertSame(2, $refreshTokens->getOauthRefreshTokens()->count());
     }
 
-    /**
-     * @return void
-     */
     public function testRevokeRefreshToken(): void
     {
         // Arrange
@@ -140,9 +125,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->assertNotNull($oauthRefreshTokenEntity->getRevokedAt());
     }
 
-    /**
-     * @return void
-     */
     public function testRevokeAllRefreshTokens(): void
     {
         // Arrange
@@ -170,9 +152,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->assertSame(2, $oauthRefreshTokenEntity->count());
     }
 
-    /**
-     * @return void
-     */
     public function testPositiveIsRefreshTokenRevoked(): void
     {
         // Arrange
@@ -190,9 +169,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->assertFalse($isRevoked);
     }
 
-    /**
-     * @return void
-     */
     public function testNegativeIsRefreshTokenRevoked(): void
     {
         // Arrange
@@ -224,9 +200,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->assertTrue($isRevoked);
     }
 
-    /**
-     * @return void
-     */
     public function testSaveRefreshToken(): void
     {
         // Arrange
@@ -259,9 +232,6 @@ class OauthRevokeFacadeTest extends Unit
         $this->assertSame($refreshToken->getIdentifier(), $oauthRefreshTokenEntity->getIdentifier());
     }
 
-    /**
-     * @return void
-     */
     public function testSaveRefreshTokenFromTransfer(): void
     {
         // Arrange

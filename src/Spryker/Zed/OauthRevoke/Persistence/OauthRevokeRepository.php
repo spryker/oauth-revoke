@@ -19,11 +19,6 @@ use Spryker\Zed\PropelOrm\Business\Runtime\ActiveQuery\Criteria;
  */
 class OauthRevokeRepository extends AbstractRepository implements OauthRevokeRepositoryInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRefreshTokenTransfer|null
-     */
     public function findRefreshToken(OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer): ?OauthRefreshTokenTransfer
     {
         $oauthTokenCriteriaFilterTransfer->requireIdentifier();
@@ -42,11 +37,6 @@ class OauthRevokeRepository extends AbstractRepository implements OauthRevokeRep
             ->mapOauthRefreshTokenEntityToOauthRefreshTokenTransfer($oauthRefreshTokenEntity, new OauthRefreshTokenTransfer());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRefreshTokenCollectionTransfer
-     */
     public function getRefreshTokens(OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer): OauthRefreshTokenCollectionTransfer
     {
         $oauthRefreshTokenQuery = $this->getFactory()->createRefreshTokenQuery();
@@ -59,11 +49,6 @@ class OauthRevokeRepository extends AbstractRepository implements OauthRevokeRep
             ->mapOauthRefreshTokenEntityCollectionToOauthRefreshTokenTransferCollection($oauthRefreshTokenCollection);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return bool
-     */
     public function isRefreshTokenRevoked(OauthRefreshTokenTransfer $oauthRefreshTokenTransfer): bool
     {
         return $this->getFactory()->createRefreshTokenQuery()
@@ -72,12 +57,6 @@ class OauthRevokeRepository extends AbstractRepository implements OauthRevokeRep
             ->exists();
     }
 
-    /**
-     * @param \Orm\Zed\OauthRevoke\Persistence\SpyOauthRefreshTokenQuery $oauthRefreshTokenQuery
-     * @param \Generated\Shared\Transfer\OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer
-     *
-     * @return \Orm\Zed\OauthRevoke\Persistence\SpyOauthRefreshTokenQuery
-     */
     protected function applyRefreshTokenFilters(
         SpyOauthRefreshTokenQuery $oauthRefreshTokenQuery,
         OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer

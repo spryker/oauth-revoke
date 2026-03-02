@@ -14,12 +14,6 @@ use Propel\Runtime\Collection\Collection;
 
 class OauthRefreshTokenMapper
 {
-    /**
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     * @param \Orm\Zed\OauthRevoke\Persistence\SpyOauthRefreshToken $oauthRefreshTokenEntity
-     *
-     * @return \Orm\Zed\OauthRevoke\Persistence\SpyOauthRefreshToken
-     */
     public function mapOauthRefreshTokenTransferToOauthRefreshTokenEntity(
         OauthRefreshTokenTransfer $oauthRefreshTokenTransfer,
         SpyOauthRefreshToken $oauthRefreshTokenEntity
@@ -32,12 +26,6 @@ class OauthRefreshTokenMapper
         return $oauthRefreshTokenEntity;
     }
 
-    /**
-     * @param \Orm\Zed\OauthRevoke\Persistence\SpyOauthRefreshToken $oauthRefreshTokenEntity
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRefreshTokenTransfer
-     */
     public function mapOauthRefreshTokenEntityToOauthRefreshTokenTransfer(
         SpyOauthRefreshToken $oauthRefreshTokenEntity,
         OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
@@ -48,11 +36,6 @@ class OauthRefreshTokenMapper
         return $oauthRefreshTokenTransfer;
     }
 
-    /**
-     * @param \Propel\Runtime\Collection\Collection $refreshTokenEntities
-     *
-     * @return \Generated\Shared\Transfer\OauthRefreshTokenCollectionTransfer
-     */
     public function mapOauthRefreshTokenEntityCollectionToOauthRefreshTokenTransferCollection(
         Collection $refreshTokenEntities
     ): OauthRefreshTokenCollectionTransfer {

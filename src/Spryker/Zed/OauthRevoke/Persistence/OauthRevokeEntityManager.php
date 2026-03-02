@@ -25,11 +25,6 @@ class OauthRevokeEntityManager extends AbstractEntityManager implements OauthRev
      */
     protected const COLUMN_REVOKED_AT = 'RevokedAt';
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer
-     *
-     * @return int
-     */
     public function deleteExpiredRefreshTokens(OauthTokenCriteriaFilterTransfer $oauthTokenCriteriaFilterTransfer): int
     {
         $oauthTokenCriteriaFilterTransfer->requireExpiresAt();
@@ -40,11 +35,6 @@ class OauthRevokeEntityManager extends AbstractEntityManager implements OauthRev
             ->delete();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return void
-     */
     public function revokeRefreshToken(OauthRefreshTokenTransfer $oauthRefreshTokenTransfer): void
     {
         $oauthRefreshTokenTransfer->requireIdentifier();
@@ -67,11 +57,6 @@ class OauthRevokeEntityManager extends AbstractEntityManager implements OauthRev
             ->update([static::COLUMN_REVOKED_AT => (new DateTime())->format('Y-m-d H:i:s')]);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\OauthRefreshTokenTransfer $oauthRefreshTokenTransfer
-     *
-     * @return \Generated\Shared\Transfer\OauthRefreshTokenTransfer
-     */
     public function saveRefreshToken(OauthRefreshTokenTransfer $oauthRefreshTokenTransfer): OauthRefreshTokenTransfer
     {
         $oauthRefreshTokenMapper = $this->getFactory()->createOauthRefreshTokenMapper();
